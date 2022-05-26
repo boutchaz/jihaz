@@ -59,9 +59,10 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "Invitation",
-  props: ["canOpen"],
+  props: ["canOpen","playSound"],
   data() {
     return {
       isOpening: false,
@@ -74,6 +75,7 @@ export default {
     // 打开邀请函
     openInvitation() {
       this.isOpening = true;
+      this.playSound();
     },
     closeInvitation() {
       this.isOpening = false;

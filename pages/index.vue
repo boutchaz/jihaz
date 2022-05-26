@@ -1,18 +1,26 @@
 <template>
-  <div class="love-container">
+  <div class="love-container" >
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
-    <Invitation />
-    <ABackTop>Test</ABackTop>
+    <Invitation  v-bind:playSound="playSound"/>
+    
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Sakura from "../plugins/sakura";
+const Fairouz = require("@/assets/fairouz.mp3").default;
 export default Vue.extend({
   name: "IndexPage",
+  data() {
+    return {
+      audio: {} as any,
+      Fairouz
+    }
+  },
   mounted() {
+    this.$store.commit('initializeSound');
     const sakura = new Sakura(".sakura-falling", {
       colors: [
         {
@@ -33,8 +41,30 @@ export default Vue.extend({
       ],
       delay: 200,
     });
-    // sakura.start()
+    this.audio = new Audio(this.Fairouz);
   },
+  computed: {
+    isSoundEnabled() {
+      return this.$store.state.isSoundEnabled;
+    }
+  },
+  methods: {
+    toggleSound() {
+      this.$store.commit('toggleSound');
+    },
+    playSound() {
+      if(this.isSoundEnabled) { 
+        this.audio = new Audio(this.Fairouz);
+        this.audio.play();
+      }
+    },
+  },
+  // methods: {
+  //   mouseMove() {
+  //     const audio:any = document.getElementById("my_audio");
+  //     audio.play();
+  //   },
+  // },
 });
 </script>
 
@@ -45,6 +75,12 @@ export default Vue.extend({
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html,
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 body h1 {
   font-family: "Niconne", cursive !important;
@@ -434,5 +470,8 @@ body h1 {
 .sakura {
   pointer-events: none;
   position: absolute;
+}
+.controls{
+  margin:8rem;
 }
 </style>
