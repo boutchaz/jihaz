@@ -54,12 +54,7 @@
         </div>
       </ACol>
       <ACol :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
-        <img
-          data-v-9853a6f4=""
-          src="../assets/nobackground.png"
-          alt="Couple"
-          class="uk-width-xlarge"
-      /></ACol>
+        <div class="image"></div></ACol>
     </ARow>
   </div>
 </template>
@@ -176,14 +171,15 @@ export default {
     left: -21rem;
     padding: 20px;
     @media only screen and (max-width: 600px) {
-      left: -7rem;
+      left: -2rem;
       bottom: -21rem;
     }
-    img {
-      position: relative;
-      width: 100%;
-      transform: scale(2.5);
-      left: 4rem;
+    .image {
+      background-image: url("../assets/nobackground.png");
+      height: 21rem; /* You must set a specified height */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: initial; /* Resize the background image to cover the entire container */
     }
   }
 }
