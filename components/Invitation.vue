@@ -181,6 +181,10 @@ export default {
     position: absolute;
     left: -21rem;
     padding: 20px;
+    @media only screen and (max-width: 600px) {
+      bottom: -2rem;
+       left: -7rem;
+    }
   }
 }
 

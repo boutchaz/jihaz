@@ -38,6 +38,8 @@ export default {
 		z-index: 1;
 		.heart{
 			padding: 15px;
+			width: 60px;
+    		height: 20px;
 		}
 	}
 </style>
