@@ -63,7 +63,6 @@
           src="../assets/nobackground.png"
           alt="Couple"
           class="uk-width-xlarge"
-          style="position: absolute; bottom: 0px; left: 15px; max-width: 100vw"
       /></ACol>
     </ARow>
   </div>
@@ -183,7 +182,13 @@ export default {
     padding: 20px;
     @media only screen and (max-width: 600px) {
       bottom: -2rem;
-       left: -7rem;
+      left: -7rem;
+    }
+    img{
+        position: absolute;
+        bottom: -31rem;
+        left: -18rem;
+        height: 105rem;
     }
   }
 }

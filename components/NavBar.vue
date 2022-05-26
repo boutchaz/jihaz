@@ -39,7 +39,7 @@ export default {
 		.heart{
 			padding: 15px;
 			width: 60px;
-    		height: 20px;
+    		height: 45px;
 		}
 	}
 </style>
