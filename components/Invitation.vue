@@ -1,61 +1,57 @@
 <template>
   <div class="wedding">
     <ARow class="row">
-      <ACol
-        class="card"
-        :xs="24"
-        :sm="24"
-        :md="2"
-        :lg="2"
-        :xl="2"
-      >
-       <div class="invitation" :class="{ 'invitation-bounce': canOpen }">
-        <div
-          class="invitation-container"
-          :class="{ 'invitation-down': isOpening }"
-        >
-          <div class="invitation-cover">
-            <div class="cover-content" :class="{ 'invitation-up': isOpening }">
-              <div class="content-inside">
-                <p>We are getting married！</p>
-                <p><b>Boutchamir zakaria & Jihane Dari</b></p>
-                <p>Date：invalid date value</p>
-                <p>Location<b>location can not be found</b></p>
-                <div class="content-inside-bless">
-                  <input
-                    placeholder="write your blessing"
-                    @keyup.enter="sendBarrage"
-                    @focus="isFocused = true"
-                    @blur="(isFocused = false), (hasEntered = false)"
-                    v-model="wish"
-                    ref="wishInput"
-                  />
-                  <p v-if="!wish && isFocused && hasEntered">
-                    Write your blessing
-                  </p>
-                  <div>
-                    <button @click="sendBarrage">send</button>
-                    <button @click="closeInvitation">close</button>
+      <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
+        <div class="invitation" :class="{ 'invitation-bounce': canOpen }">
+          <div
+            class="invitation-container"
+            :class="{ 'invitation-down': isOpening }"
+          >
+            <div class="invitation-cover">
+              <div
+                class="cover-content"
+                :class="{ 'invitation-up': isOpening }"
+              >
+                <div class="content-inside">
+                  <p>We are getting married！</p>
+                  <p><b>Boutchamir zakaria & Jihane Dari</b></p>
+                  <p>Date：invalid date value</p>
+                  <p>Location<b>location can not be found</b></p>
+                  <div class="content-inside-bless">
+                    <input
+                      placeholder="write your blessing"
+                      @keyup.enter="sendBarrage"
+                      @focus="isFocused = true"
+                      @blur="(isFocused = false), (hasEntered = false)"
+                      v-model="wish"
+                      ref="wishInput"
+                    />
+                    <p v-if="!wish && isFocused && hasEntered">
+                      Write your blessing
+                    </p>
+                    <div>
+                      <button @click="sendBarrage">send</button>
+                      <button @click="closeInvitation">close</button>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div
+                class="cover-inside-left"
+                :class="{ opening: isOpening }"
+              ></div>
+              <div
+                class="cover-inside-right"
+                :class="{ opening: isOpening }"
+              ></div>
+              <img
+                class="cover-inside-seal"
+                @click="openInvitation"
+                :class="{ 'invitation-flight': isOpening }"
+              />
             </div>
-            <div
-              class="cover-inside-left"
-              :class="{ opening: isOpening }"
-            ></div>
-            <div
-              class="cover-inside-right"
-              :class="{ opening: isOpening }"
-            ></div>
-            <img
-              class="cover-inside-seal"
-              @click="openInvitation"
-              :class="{ 'invitation-flight': isOpening }"
-            />
           </div>
         </div>
-      </div>
       </ACol>
       <ACol :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
         <img
@@ -117,7 +113,7 @@ export default {
     position: absolute;
     width: 50%;
     height: 300px;
-    right:4rem;
+    right: 5rem;
     padding: 20px;
     .cover-inside-left {
       position: absolute;
@@ -177,18 +173,17 @@ export default {
   .picture {
     bottom: -25rem;
     border: 1px solid #fff;
-    position: absolute;
     left: -21rem;
     padding: 20px;
     @media only screen and (max-width: 600px) {
-      bottom: -2rem;
       left: -7rem;
+      bottom: -21rem;
     }
-    img{
-        position: absolute;
-        bottom: -31rem;
-        left: -18rem;
-        height: 105rem;
+    img {
+      position: relative;
+      width: 100%;
+      transform: scale(2.5);
+      left: 4rem;
     }
   }
 }
