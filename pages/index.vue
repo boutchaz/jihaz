@@ -1,7 +1,7 @@
 <template>
 
   <div class="love-container" >
-    <link itemprop="thumbnailUrl" href="https://bla123.neocities.org/mp/images/thumbs/IMG_327.JPG">
+    <link itemprop="thumbnailUrl" href="https://www.jihaneandzakaria2022.tk/wedding.jpeg">
     <span itemprop="image" itemscope itemtype="image/jpeg"> 
       <link itemprop="url" href="https://www.jihaneandzakaria2022.tk/wedding.jpeg"> 
     </span>
