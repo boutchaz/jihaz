@@ -1,5 +1,9 @@
 <template>
+
   <div class="love-container" >
+    <span itemprop="image" itemscope itemtype="image/jpeg"> 
+      <link itemprop="url" href="https://www.jihaneandzakaria2022.tk/wedding.jpeg"> 
+    </span>
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
     <Invitation  v-bind:playSound="playSound"/>
