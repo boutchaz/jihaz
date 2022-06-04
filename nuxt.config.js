@@ -70,5 +70,19 @@ export default {
         }
       })
     }
+  },
+  pwa: {
+    manifest: {
+      name: 'Zakaria et Jihane',
+      description:'Boutchamir zakaria , Dari Jihane et leurs familles,ont le plaisir de vous annoncer leur mariage',
+      lang: 'en',
+      useWebmanifestExtension: false,
+      icons: [
+        {
+          src: "ring.jpeg",
+          type: "image/jpeg",
+        },
+      ]
+    }
   }
 }
