@@ -39,6 +39,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/pwa',
   ],
   fontawesome: {
     icons: {
@@ -77,11 +78,11 @@ export default {
       description:'Boutchamir zakaria , Dari Jihane et leurs familles,ont le plaisir de vous annoncer leur mariage',
       lang: 'en',
       useWebmanifestExtension: false,
-      icons: [
+      icons:[
         {
-          src: "ring.jpeg",
-          type: "image/jpeg",
-        },
+          src: './static/leme.svg',
+          sizes: "any"
+        }
       ]
     }
   }
