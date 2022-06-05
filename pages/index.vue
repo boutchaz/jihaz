@@ -1,9 +1,9 @@
 <template>
 
   <div class="love-container" >
-    <link itemprop="thumbnailUrl" href="https://www.jihaneandzakaria2022.tk/wedding.png">
+    <link itemprop="thumbnailUrl" href="https://www.jihaneandzakaria2022.tk/wedd.png">
     <span itemprop="image" itemscope itemtype="image/jpeg"> 
-      <link itemprop="url" href="https://www.jihaneandzakaria2022.tk/wedding.png"> 
+      <link itemprop="url" href="https://www.jihaneandzakaria2022.tk/wedd.png"> 
     </span>
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
