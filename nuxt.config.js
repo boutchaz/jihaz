@@ -14,6 +14,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Boutchamir zakaria , Dari Jihane et leurs familles,ont le plaisir de vous annoncer leur mariage' },
       { hid: 'og:image', property: 'og:image',itemprop:'image' ,content:'https://www.jihaneandzakaria2022.tk/wedding.png' },
+      { hid: 'og:url', content:'https://www.jihaneandzakaria2022.tk' },
       { itemprop:'thumbnailUrl' ,content:'https://www.jihaneandzakaria2022.tk/wedding.png' },
 
     ],
