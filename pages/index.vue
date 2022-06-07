@@ -64,12 +64,6 @@ export default Vue.extend({
       }
     },
   },
-  // methods: {
-  //   mouseMove() {
-  //     const audio:any = document.getElementById("my_audio");
-  //     audio.play();
-  //   },
-  // },
 });
 </script>
 
