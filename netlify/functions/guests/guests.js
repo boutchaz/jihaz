@@ -2,29 +2,20 @@
 const table = require('../../utils/Airtable');
 
 const handler = async (event) => {
+
   try {
-    table.select({
-      // Selecting the first 3 records in Grid view:
-      maxRecords: 3,
-      view: "Grid view"
-  }).eachPage(function page(records, fetchNextPage) {
-      // This function (`page`) will get called for each page of records.
-  
-      records.forEach(function(record) {
-          console.log('Retrieved', record.get('fullname'));
-      });
-      // To fetch the next page of records, call `fetchNextPage`.
-      // If there are more records, `page` will get called again.
-      // If there are no more records, `done` will get called.
-      fetchNextPage();
-  
-  }, function done(err) {
-      if (err) { console.error(err); return; }
-  });
-    const subject = event.queryStringParameters.name || 'World'
+    let user = undefined;
+    const {uid} = event.queryStringParameters;
+    if(uid){
+      const user = await table.find(uid);
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ guest: user.fields }),
+      }
+    }
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` })
+      body: JSON.stringify({ guest:'Oops Make sure you are invited '}),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }

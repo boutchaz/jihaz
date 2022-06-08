@@ -19,36 +19,32 @@
 <script lang="ts">
 import Vue from "vue";
 import Sakura from "../plugins/sakura";
-import axios, { AxiosError } from 'axios';
-import type { ServerError } from 'types';
+import axios, { AxiosError } from "axios";
+import type { ServerError } from "types";
 
 const Fairouz = require("@/assets/fairouz.mp3").default;
 
-async function usePosts(uid:string) {
-  const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
-  return data;
-}
-
 export default Vue.extend({
   name: "IndexPage",
-  async asyncData({ store,route }) {
+  async asyncData({ store, route }) {
     const { uid } = route.query;
     try {
-        
-        const {data} = await axios.post('https://www.jihaneandzakaria2022.tk/.netlify/functions/guests', { data: {  }, query: {  } });
-        const guest = {
-            fullName: "Boutchamir Zakaria",
-        }
-        store.commit("saveGuest",guest)
-    }catch(error){
-        const serverError = error as AxiosError<ServerError>;
-        if (serverError && serverError?.response) {
-          console.log(serverError?.response?.data?.message || 'Something went wrong');
-        }
+      const { data } = await axios({
+        url: "http://localhost:9999/.netlify/functions/guests",
+        method: "get",
+        params: {
+          uid,
+        },
+      });
+      store.commit("saveGuest", data.guest);
+    } catch (error) {
+      const serverError = error as AxiosError<ServerError>;
+      if (serverError && serverError?.response) {
+        console.log(
+          serverError?.response?.data?.message || "Something went wrong"
+        );
+      }
     }
-   
   },
   data() {
     return {
@@ -84,9 +80,9 @@ export default Vue.extend({
     isSoundEnabled() {
       return this.$store.state.isSoundEnabled;
     },
-    guest(){
-        return this.$store.state.guest;
-    }
+    guest() {
+      return this.$store.state.guest;
+    },
   },
   methods: {
     toggleSound() {
@@ -126,17 +122,6 @@ body h1 {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-/*!
- * Sakura.js 1.1.1
- * Vanilla JS version of jQuery-Sakura: Make it rain sakura petals.
- * https://github.com/jhammann/sakura
- *
- * Copyright 2019-2019 Jeroen Hammann
- *
- * Released under the MIT License
- *
- * Released on: September 4, 2019
- */
 @-webkit-keyframes fall {
   0% {
     opacity: 0.9;
