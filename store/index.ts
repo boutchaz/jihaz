@@ -1,5 +1,6 @@
 export const state = () => ({
   isSoundEnabled: true as Boolean,
+  guest:{},
 });
 
 export const mutations = {
@@ -22,5 +23,9 @@ export const mutations = {
       state.isSoundEnabled = true;
       localStorage.setItem("isSoundEnabled", "true");
     }
+  },
+  saveGuest(state: any,user:any) {
+    console.log(user)
+    state.guest = user
   },
 };

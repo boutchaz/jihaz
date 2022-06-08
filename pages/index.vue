@@ -12,7 +12,7 @@
     </span>
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
-    <Invitation v-bind:playSound="playSound" />
+    <Invitation v-bind:playSound="playSound" v-bind:guest="guest" />
   </div>
 </template>
 
@@ -33,11 +33,15 @@ async function usePosts(uid:string) {
 
 export default Vue.extend({
   name: "IndexPage",
-  async asyncData({ route }) {
+  async asyncData({ store,route }) {
     const { uid } = route.query;
     try {
+        
         const {data} = await axios.post('https://www.jihaneandzakaria2022.tk/.netlify/functions/guests', { data: {  }, query: {  } });
-        console.log(data) 
+        const guest = {
+            fullName: "Boutchamir Zakaria",
+        }
+        store.commit("saveGuest",guest)
     }catch(error){
         const serverError = error as AxiosError<ServerError>;
         if (serverError && serverError?.response) {
@@ -80,6 +84,9 @@ export default Vue.extend({
     isSoundEnabled() {
       return this.$store.state.isSoundEnabled;
     },
+    guest(){
+        return this.$store.state.guest;
+    }
   },
   methods: {
     toggleSound() {

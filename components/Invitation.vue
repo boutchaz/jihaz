@@ -14,7 +14,7 @@
               >
                 <div class="content-inside">
                   <p>We are getting married！</p>
-                  <p><b>Boutchamir zakaria & Jihane Dari</b></p>
+                  <p><b>{{ guest.fullName }} & Jihane Dari</b></p>
                   <p>Date：invalid date value</p>
                   <p>Location<b>location can not be found</b></p>
                   <div class="content-inside-bless">
@@ -62,7 +62,7 @@
 
 export default {
   name: "Invitation",
-  props: ["canOpen","playSound"],
+  props: ["canOpen","playSound","guest"],
   data() {
     return {
       isOpening: false,
