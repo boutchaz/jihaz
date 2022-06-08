@@ -1,31 +1,59 @@
 <template>
-
-  <div class="love-container" >
-    <link itemprop="thumbnailUrl" href="https://www.jihaneandzakaria2022.tk/wedd.png">
-    <span itemprop="image" itemscope itemtype="image/jpeg"> 
-      <link itemprop="url" href="https://www.jihaneandzakaria2022.tk/wedd.png"> 
+  <div class="love-container">
+    <link
+      itemprop="thumbnailUrl"
+      href="https://www.jihaneandzakaria2022.tk/wedd.png"
+    />
+    <span itemprop="image" itemscope itemtype="image/jpeg">
+      <link
+        itemprop="url"
+        href="https://www.jihaneandzakaria2022.tk/wedd.png"
+      />
     </span>
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
-    <Invitation  v-bind:playSound="playSound"/>
-    
+    <Invitation v-bind:playSound="playSound" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Sakura from "../plugins/sakura";
+import axios, { AxiosError } from 'axios';
+import type { ServerError } from 'types';
+
 const Fairouz = require("@/assets/fairouz.mp3").default;
+
+async function usePosts(uid) {
+  const { data } = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+  return data;
+}
+
 export default Vue.extend({
   name: "IndexPage",
+  async asyncData({ route }) {
+    const { uid } = route.query;
+    try {
+        const {data} = await axios.get('https://www.jihaneandzakaria2022.tk/.netlify/functions/guests', { data: {  }, query: {  } })
+        console.log(data) 
+    }catch(error){
+        const serverError = error as AxiosError<ServerError>;
+        if (serverError && serverError?.response) {
+          console.log(serverError?.response?.data?.message || 'Something went wrong');
+        }
+    }
+   
+  },
   data() {
     return {
       audio: {} as any,
-      Fairouz
-    }
+      Fairouz,
+    };
   },
   mounted() {
-    this.$store.commit('initializeSound');
+    this.$store.commit("initializeSound");
     const sakura = new Sakura(".sakura-falling", {
       colors: [
         {
@@ -51,14 +79,14 @@ export default Vue.extend({
   computed: {
     isSoundEnabled() {
       return this.$store.state.isSoundEnabled;
-    }
+    },
   },
   methods: {
     toggleSound() {
-      this.$store.commit('toggleSound');
+      this.$store.commit("toggleSound");
     },
     playSound() {
-      if(this.isSoundEnabled) { 
+      if (this.isSoundEnabled) {
         this.audio = new Audio(this.Fairouz);
         this.audio.play();
       }
@@ -470,7 +498,7 @@ body h1 {
   pointer-events: none;
   position: absolute;
 }
-.controls{
-  margin:8rem;
+.controls {
+  margin: 8rem;
 }
 </style>
