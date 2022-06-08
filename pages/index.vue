@@ -30,7 +30,7 @@ export default Vue.extend({
     const { uid } = route.query;
     try {
       const { data } = await axios({
-        url: "http://localhost:9999/.netlify/functions/guests",
+        url: "https://www.jihaneandzakaria2022.tk/.netlify/functions/guests",
         method: "get",
         params: {
           uid,
