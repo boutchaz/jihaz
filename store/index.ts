@@ -25,7 +25,6 @@ export const mutations = {
     }
   },
   saveGuest(state: any,user:any) {
-    console.log(user)
-    state.guest = user
+    state.guest = {...user}
   },
 };

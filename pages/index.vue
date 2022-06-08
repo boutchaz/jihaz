@@ -36,7 +36,7 @@ export default Vue.extend({
           uid,
         },
       });
-      store.commit("saveGuest", data);
+      store.commit("saveGuest", data.guest);
     } catch (error) {
       const serverError = error as AxiosError<ServerError>;
       if (serverError && serverError?.response) {
