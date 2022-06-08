@@ -24,7 +24,7 @@ import type { ServerError } from 'types';
 
 const Fairouz = require("@/assets/fairouz.mp3").default;
 
-async function usePosts(uid) {
+async function usePosts(uid:string) {
   const { data } = await axios.get(
     "https://jsonplaceholder.typicode.com/posts"
   );
@@ -36,7 +36,7 @@ export default Vue.extend({
   async asyncData({ route }) {
     const { uid } = route.query;
     try {
-        const {data} = await axios.get('https://www.jihaneandzakaria2022.tk/.netlify/functions/guests', { data: {  }, query: {  } })
+        const {data} = await axios.post('https://www.jihaneandzakaria2022.tk/.netlify/functions/guests', { data: {  }, query: {  } });
         console.log(data) 
     }catch(error){
         const serverError = error as AxiosError<ServerError>;
