@@ -2,11 +2,15 @@
 {
   "fr": {
     "message": "Boutchaz",
-    "wife": "Jihane"
+    "date": "Date",
+    "location": "Location",
+    "place": "Dar Al Marjane"
   },
   "ar": {
     "message": "هذه الليلة هي مميزة جداً بالنسبة لنا، لهذا دعونا فيه الأشخاص المميزين أيضاً، {guest} حضوركم يشرفنا.",
-    "wife": "جيهان"
+    "date": "التاريخ",
+    "location": "المكان",
+    "place": "دار المرجان"
   }
 }
 </i18n>
@@ -26,9 +30,8 @@
               >
                 <div class="content-inside">
                   <p class="message">{{ $t('message', { guest: guest.fullName }) }} </p>
-                  <p><b>Boutchamir Zakaria & Jihane Dari</b></p>
-                  <p>Date：invalid date value</p>
-                  <p>Location<b>location can not be found</b></p>
+                  <p>{{ $t('date') }} ：2020/07/23</p>
+                   <p>{{ $t('location') }} ：<a href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank">{{ $t('place') }}</a></p>
                   <div class="content-inside-bless">
                     <input
                       placeholder="write your blessing"
@@ -201,7 +204,7 @@ export default {
 
 .wedding {
   font-family: "Niconne", cursive !important;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   mix-blend-mode: multiply !important;
   margin-top: 80px;
   height: 100vh;
@@ -221,6 +224,8 @@ export default {
       top: 0;
       left: 0;
       width: 300px;
+      overflow: scroll;
+      height: 250px;
       max-height: 700px;
       padding: 15px;
       padding-top: 60px;
