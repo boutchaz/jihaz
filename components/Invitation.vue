@@ -249,6 +249,8 @@ export default {
         position: relative;
         width: 100%;
         height: 100%;
+        overflow: scroll;
+        max-height: 250px;
         transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1);
         -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 1, 1);
         &.invitation-down {
