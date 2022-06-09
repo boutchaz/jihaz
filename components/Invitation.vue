@@ -201,7 +201,10 @@ export default {
     }
   }
 }
-
+.invitation {
+   overflow: scroll;
+   max-height: 250px;
+}
 .wedding {
   font-family: "Niconne", cursive !important;
   font-size: 1.3rem;
