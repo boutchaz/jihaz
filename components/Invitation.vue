@@ -30,7 +30,7 @@
               >
                 <div class="content-inside">
                   <p class="message">{{ $t('message', { guest: guest.fullName }) }} </p>
-                  <p>{{ $t('date') }} ：2020/07/23</p>
+                  <p>{{ $t('date') }} ：2022/07/23</p>
                    <p>{{ $t('location') }} ：<a href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank">{{ $t('place') }}</a></p>
                   <div class="content-inside-bless">
                     <input
@@ -77,7 +77,7 @@
 
 export default {
   name: "Invitation",
-  props: ["canOpen","playSound","guest"],
+  props: ["canOpen","playSound","pauseSound","guest"],
   data() {
     return {
       isOpening: false,
@@ -94,6 +94,7 @@ export default {
     },
     closeInvitation() {
       this.isOpening = false;
+      this.pauseSound()
       setTimeout(() => {
         this.$emit("onClose");
       }, 660);

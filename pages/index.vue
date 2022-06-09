@@ -12,7 +12,7 @@
     </span>
     <div class="sakura-falling"></div>
     <NavBar></NavBar>
-    <Invitation v-bind:playSound="playSound" v-bind:guest="guest" />
+    <Invitation v-bind:playSound="playSound" v-bind:guest="guest"     v-bind:pauseSound="pauseSound"    />
   </div>
 </template>
 
@@ -99,6 +99,11 @@ export default Vue.extend({
       if (this.isSoundEnabled) {
         this.audio = new Audio(this.Fairouz);
         this.audio.play();
+      }
+    },
+     pauseSound() {
+      if (this.isSoundEnabled) {
+        this.audio.pause();
       }
     },
   },
