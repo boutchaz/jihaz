@@ -286,6 +286,8 @@ export default {
               background-color: #fff1de;
               text-align: center;
               overflow: auto;
+              overflow: scroll;
+              max-height: 250px;
               .message{
                 font-size: 1.5rem;
                 font-weight: bold;
