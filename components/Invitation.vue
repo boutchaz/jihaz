@@ -18,7 +18,7 @@
   <div class="wedding">
     <ARow class="row">
       <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
-        <div :style="{overflow: 'scroll',maxHeight: '250px'}" class="invitation" :class="{ 'invitation-bounce': canOpen }">
+        <div :style="{overflowY: 'scroll',maxHeight: '250px'}" class="invitation" :class="{ 'invitation-bounce': canOpen }">
           <div
             class="invitation-container"
             :class="{ 'invitation-down': isOpening }"
@@ -124,7 +124,7 @@ export default {
   .card {
     border: 1px solid #fff;
     position: absolute;
-    width: 50%;
+    width: 70%;
     height: 300px;
     right: 5rem;
     padding: 20px;
