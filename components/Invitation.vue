@@ -124,9 +124,8 @@ export default {
   .card {
     border: 1px solid #fff;
     position: absolute;
-    width: 70%;
+    width: 90%;
     height: 300px;
-    right: 5rem;
     padding: 20px;
     .cover-inside-left {
       position: absolute;
