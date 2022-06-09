@@ -267,6 +267,8 @@ export default {
           box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.15);
           .cover-content {
             position: absolute;
+            overflow: scroll;
+            max-height: 250px;
             top: 0;
             left: 0;
             width: 100%;
