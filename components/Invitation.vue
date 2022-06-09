@@ -18,7 +18,7 @@
   <div class="wedding">
     <ARow class="row">
       <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
-        <div class="invitation" :class="{ 'invitation-bounce': canOpen }">
+        <div :style="{overflow: 'scroll',maxHeight: '250px'}" class="invitation" :class="{ 'invitation-bounce': canOpen }">
           <div
             class="invitation-container"
             :class="{ 'invitation-down': isOpening }"
@@ -200,10 +200,6 @@ export default {
       background-size: initial; /* Resize the background image to cover the entire container */
     }
   }
-}
-.invitation {
-   overflow: scroll;
-   max-height: 250px;
 }
 .wedding {
   font-family: "Niconne", cursive !important;
