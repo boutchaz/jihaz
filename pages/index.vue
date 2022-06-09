@@ -53,6 +53,13 @@ export default Vue.extend({
     };
   },
   mounted() {
+    if (this.$i18n.locale == "ar") {
+      document.documentElement.lang = 'ar';
+       document.body.style.direction = "rtl";
+    }else{
+       document.documentElement.lang = 'fr';
+       document.body.style.direction = "ltr";
+    }
     this.$store.commit("initializeSound");
     const sakura = new Sakura(".sakura-falling", {
       colors: [

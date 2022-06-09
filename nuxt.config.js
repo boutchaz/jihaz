@@ -7,7 +7,7 @@ export default {
   head: {
     title: 'jihaz',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
@@ -65,17 +65,7 @@ export default {
   i18n: {
     locales: ['fr', 'ar'],
     defaultLocale: 'fr',
-    vueI18n: {
-      fallbackLocale: 'fr',
-      messages: {
-        fr: {
-          welcome: 'Bienvenue'
-        },
-        es: {
-          welcome: 'Bienvenido'
-        }
-      }
-    }
+    vueI18nLoader: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

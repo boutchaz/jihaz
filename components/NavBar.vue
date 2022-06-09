@@ -1,6 +1,18 @@
+<i18n>
+{
+  "fr": {
+    "husband": "Boutchaz",
+    "wife": "Jihane"
+  },
+  "ar": {
+    "husband": "زكرياء",
+    "wife": "جيهان"
+  }
+}
+</i18n>
 <template>
 	<div class="header">
-		Boutchaz <font-awesome-icon :icon="['fas', 'heart']" class='heart'/> Jihane
+		{{ $t('husband') }} <font-awesome-icon :icon="['fas', 'heart']" class='heart'/> {{ $t('wife') }} 
 	</div>
 </template>
 

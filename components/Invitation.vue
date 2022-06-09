@@ -1,3 +1,15 @@
+<i18n>
+{
+  "fr": {
+    "message": "Boutchaz",
+    "wife": "Jihane"
+  },
+  "ar": {
+    "message": "هذه الليلة هي مميزة جداً بالنسبة لنا، لهذا دعونا فيه الأشخاص المميزين أيضاً، {guest} حضوركم يشرفنا.",
+    "wife": "جيهان"
+  }
+}
+</i18n>
 <template>
   <div class="wedding">
     <ARow class="row">
@@ -13,8 +25,8 @@
                 :class="{ 'invitation-up': isOpening }"
               >
                 <div class="content-inside">
-                  <p>We are getting married！</p>
-                  <p><b>{{ guest.fullName }} & Jihane Dari</b></p>
+                  <p class="message">{{ $t('message', { guest: guest.fullName }) }} </p>
+                  <p><b>Boutchamir Zakaria & Jihane Dari</b></p>
                   <p>Date：invalid date value</p>
                   <p>Location<b>location can not be found</b></p>
                   <div class="content-inside-bless">
@@ -101,6 +113,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css?family=Niconne");
 .row {
   height: 100vh;
   max-width: 1200px;
@@ -187,7 +200,8 @@ export default {
 }
 
 .wedding {
-  // background-image: url(https://4.bp.blogspot.com/-Vkv1EpmPF7E/Wi3whl0qf3I/AAAAAAAAH88/Km_GQFM6JyYX-9-ue7aCMKUjV9BNc0_sQCLcBGAs/s1600/bg.jpg);
+  font-family: "Niconne", cursive !important;
+  font-size: 1.2rem;
   mix-blend-mode: multiply !important;
   margin-top: 80px;
   height: 100vh;
@@ -267,6 +281,12 @@ export default {
               background-color: #fff1de;
               text-align: center;
               overflow: auto;
+              .message{
+                font-size: 1.5rem;
+                font-weight: bold;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+              }
               .content-inside-photo {
                 width: 100%;
                 margin-bottom: 10px;
