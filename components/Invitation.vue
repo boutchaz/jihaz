@@ -184,14 +184,10 @@ export default {
     }
   }
   .picture {
-    bottom: -25rem;
-    border: 1px solid #fff;
-    left: -21rem;
-    padding: 20px;
-    @media only screen and (max-width: 600px) {
-      left: -2rem;
-      bottom: -21rem;
-    }
+    bottom: -6rem;
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
     .image {
       background-image: url("../assets/nobackground.png");
       height: 21rem; /* You must set a specified height */
@@ -208,7 +204,7 @@ export default {
   margin-top: 80px;
   height: 100vh;
   z-index: 1;
-  padding-top: 70px;
+  padding-top: 15px;
   .container {
     display: flex;
     justify-content: space-around;
