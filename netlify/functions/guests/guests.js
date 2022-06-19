@@ -3,7 +3,8 @@ const table = require('../../utils/Airtable');
 
 const handler = async (event) => {
   const {uid} = event.queryStringParameters;
-  const params = querystring.parse(event.body);
+  console.log(event.body)
+  const params = event.body;
   if(params.wish){
     try {
       await table.update([
