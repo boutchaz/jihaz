@@ -1,17 +1,18 @@
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const table = require('../../utils/Airtable');
+const querystring = require('querystring')
 
 const handler = async (event) => {
   const {uid} = event.queryStringParameters;
-  console.log(typeof event.body)
-  console.log(event.body)
-  if(event.body.wish){
+  const body = querystring.parse(event.body);
+
+  if(body.wish){
     try {
       await table.update([
         {
           "id": uid,
           "fields": {
-            "wish": event.body.wish
+            "wish": body.wish
           }
         }])
     } catch (error) {
