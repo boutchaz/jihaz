@@ -17,6 +17,9 @@ const handler = async (event) => {
             "wish": body.wish
           }
         }])
+      return {
+        statusCode: 200
+      }
     } catch (error) {
       if (err) {
         return { statusCode: 500, body: error.toString() }
