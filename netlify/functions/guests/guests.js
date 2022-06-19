@@ -22,24 +22,22 @@ const handler = async (event) => {
         return { statusCode: 500, body: error.toString() }
       }
     }
-  }else{
-    try {
-      const {uid} = event.queryStringParameters;
-      if(uid){
-        const user = await table.find(uid);
-        return {
-          statusCode: 200,
-          body: JSON.stringify({ guest: user.fields }),
-        }
-      }
+  }
+  try {
+    const {uid} = event.queryStringParameters;
+    if(uid){
+      const user = await table.find(uid);
       return {
         statusCode: 200,
-        body: JSON.stringify({ guest:'Oops Make sure you are invited '}),
+        body: JSON.stringify({ guest: user.fields }),
       }
-    } catch (error) {
-      return { statusCode: 500, body: error.toString() }
     }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ guest:'Oops Make sure you are invited '}),
+    }
+  } catch (error) {
+    return { statusCode: 500, body: error.toString() }
   }
- 
 }
 module.exports = { handler }
