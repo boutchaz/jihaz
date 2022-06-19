@@ -2,9 +2,26 @@
 const table = require('../../utils/Airtable');
 
 const handler = async (event) => {
+  const {uid} = event.queryStringParameters;
+  const params = querystring.parse(event.body);
+  if(params.wish){
+    try {
+      await table.update([
+        {
+          "id": uid,
+          "fields": {
+            "wish": params.wish
+          }
+        }])
+    } catch (error) {
+      if (err) {
+        return { statusCode: 500, body: error.toString() }
+      }
+    }
 
+    
+  }
   try {
-    let user = undefined;
     const {uid} = event.queryStringParameters;
     if(uid){
       const user = await table.find(uid);
