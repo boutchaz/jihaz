@@ -116,9 +116,7 @@ export default {
 
   .card {
     border: 1px solid #fff;
-    position: absolute;
-    width: 90%;
-    height: 300px;
+    height: calc(100% - 21rem);
     padding: 0 20px;
 
     .cover-inside-left {
@@ -183,21 +181,14 @@ export default {
   }
 
   .picture {
-    bottom: -6rem;
+    bottom: 0;
     position: fixed;
-    z-index: 10;
-    pointer-events: none;
 
     .image {
       background-image: url("../assets/no.png");
-      height: 21rem;
-      /* You must set a specified height */
-      background-position: center;
-      /* Center the image */
+      height: 15rem;
+      background-position: 8%;
       background-repeat: no-repeat;
-      /* Do not repeat the image */
-      background-size: initial;
-      /* Resize the background image to cover the entire container */
     }
   }
 }
