@@ -189,7 +189,7 @@ export default {
     pointer-events: none;
 
     .image {
-      background-image: url("../assets/nobackground.png");
+      background-image: url("../assets/no.png");
       height: 21rem;
       /* You must set a specified height */
       background-position: center;
