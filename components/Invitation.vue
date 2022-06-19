@@ -48,14 +48,14 @@
           </div>
         </div>
       </ACol>
-      <ACol :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
+      <ACol v-if="!isFocused" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
         <div class="image"></div>
       </ACol>
     </ARow>
   </div>
 </template>
 <script >
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 export default {
   name: "Invitation",
