@@ -48,7 +48,7 @@
           </div>
         </div>
       </ACol>
-      <ACol v-if="!isFocused" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
+      <ACol v-if="!isFocused && isOpening" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
         <div class="image"></div>
       </ACol>
     </ARow>
@@ -186,7 +186,7 @@ export default {
 
     .image {
       background-image: url("../assets/no.png");
-      height: 15rem;
+      height: 30rem;
       background-position: 8%;
       background-repeat: no-repeat;
     }
