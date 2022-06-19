@@ -7,7 +7,7 @@ const handler = async (event) => {
   if(event.body){
     body = JSON.parse(event.body);
   }
-  if(body.wish){
+  if(body && body.wish){
     try {
       await table.update([
         {
