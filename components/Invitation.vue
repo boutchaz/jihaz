@@ -88,9 +88,9 @@ export default {
           params: {
             uid:this.guest.uiid ,
           },
-          data: {
+          data: JSON.stringify({
             wish: this.wish
-          }
+          })
         });
       }
       this.$nextTick(async () => {

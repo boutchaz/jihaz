@@ -4,8 +4,11 @@ const querystring = require('querystring')
 
 const handler = async (event) => {
   const {uid} = event.queryStringParameters;
+  console.log(event.body);
+  console.log(event.body.wish)
   const body = querystring.parse(event.body);
-
+  console.log(body);
+  console.log(body.wish)
   if(body.wish){
     try {
       await table.update([
