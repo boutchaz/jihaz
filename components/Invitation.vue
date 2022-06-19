@@ -69,7 +69,6 @@ export default {
     };
   },
   methods: {
-    // 打开邀请函
     openInvitation() {
       this.isOpening = true;
       this.playSound();
@@ -81,39 +80,27 @@ export default {
         this.$emit("onClose");
       }, 660);
     },
-    // 发送弹幕
     async sendBarrage() {
-      this.pauseSound()
+      if (this.guest.uiid && this.wish) {
+        await axios({
+          url: "https://www.jihaneandzakaria2022.tk/.netlify/functions/guests",
+          method: "POST",
+          params: {
+            uid,
+          },
+          data: {
+            wish: this.wish
+          }
+        });
+      }
       this.$nextTick(async () => {
+        this.pauseSound();
         this.hasEntered = true;
         if (!this.wish) {
           return;
         }
         this.isOpening = false;
         this.$refs.wishInput.blur();
-        try {
-          const { data } = await axios({
-            url: "https://www.jihaneandzakaria2022.tk/.netlify/functions/guests",
-            method: "POST",
-            params: {
-              uid,
-            },
-            data: {
-              wish: this.wish
-            }
-          });
-          store.commit("saveGuest", data.guest);
-        } catch (error) {
-          const serverError = error;
-          if (serverError && serverError?.response) {
-            console.log(
-              serverError?.response?.data?.message || "Something went wrong"
-            );
-          }
-        }
-        // setTimeout(() => {
-        //   this.$emit("sendBarrage", this.wish);
-        // }, 660);
       });
     },
   },
