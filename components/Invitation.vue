@@ -305,7 +305,6 @@ export default {
                 font-size: 1.5rem;
                 font-weight: bold;
                 line-height: 1.5;
-                margin-bottom: 1rem;
               }
 
               .content-inside-photo {
