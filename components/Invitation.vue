@@ -86,7 +86,7 @@ export default {
           url: "https://www.jihaneandzakaria2022.tk/.netlify/functions/guests",
           method: "POST",
           params: {
-            uid,
+            uid:this.guest.uiid ,
           },
           data: {
             wish: this.wish
