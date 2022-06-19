@@ -3,14 +3,15 @@ const table = require('../../utils/Airtable');
 
 const handler = async (event) => {
   const {uid} = event.queryStringParameters;
-  const eventBody = JSON.parse(event.body)
-  if(eventBody.wish){
+  console.log(typeof event.body)
+  console.log(event.body)
+  if(event.body.wish){
     try {
       await table.update([
         {
           "id": uid,
           "fields": {
-            "wish": eventBody.wish
+            "wish": event.body.wish
           }
         }])
     } catch (error) {
