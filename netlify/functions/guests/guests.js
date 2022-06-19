@@ -1,12 +1,11 @@
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const table = require('../../utils/Airtable');
-const querystring = require('querystring')
 
 const handler = async (event) => {
   const {uid} = event.queryStringParameters;
   console.log(event.body);
   console.log(event.body.wish)
-  const body = querystring.parse(event.body);
+  const body = JSON.parse(event.body)
   console.log(body);
   console.log(body.wish)
   if(body.wish){
