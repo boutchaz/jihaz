@@ -18,7 +18,7 @@
   <div class="wedding">
     <ARow class="row">
       <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
-        <div :style="{ overflowY: 'scroll', maxHeight: '250px' }" class="invitation"
+        <div :style="{ overflowY: 'scroll'}" class="invitation"
           :class="{ 'invitation-bounce': canOpen }">
           <div class="invitation-container" :class="{ 'invitation-down': isOpening }">
             <div class="invitation-cover">
@@ -119,7 +119,7 @@ export default {
     position: absolute;
     width: 90%;
     height: 300px;
-    padding: 20px;
+    padding: 0 20px;
 
     .cover-inside-left {
       position: absolute;
