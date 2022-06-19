@@ -1,7 +1,7 @@
 <i18n>
 {
   "fr": {
-    "husband": "Boutchaz",
+    "husband": "Zakaria",
     "wife": "Jihane"
   },
   "ar": {
