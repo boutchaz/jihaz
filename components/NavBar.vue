@@ -12,7 +12,7 @@
 </i18n>
 <template>
 	<div class="header">
-		{{ $t('husband') }} <font-awesome-icon :icon="['fas', 'heart']" class='heart'/> {{ $t('wife') }} 
+		{{ $t('wife') }}  <font-awesome-icon :icon="['fas', 'heart']" class='heart'/> {{ $t('husband') }}
 	</div>
 </template>
 

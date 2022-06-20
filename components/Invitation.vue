@@ -1,7 +1,7 @@
 <i18n>
 {
   "fr": {
-    "message": "chère {guest}, Zakaria et Jihane ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
+    "message": "chère {guest}, Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
     "date": "Date",
     "location": "Location",
     "place": "Dar Al Marjane"
