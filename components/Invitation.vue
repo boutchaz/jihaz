@@ -18,8 +18,7 @@
   <div class="wedding">
     <ARow class="row">
       <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
-        <div :style="{ overflowY: 'scroll'}" class="invitation"
-          :class="{ 'invitation-bounce': canOpen }">
+        <div :style="{ overflowY: 'scroll' }" class="invitation" :class="{ 'invitation-bounce': canOpen }">
           <div class="invitation-container" :class="{ 'invitation-down': isOpening }">
             <div class="invitation-cover">
               <div class="cover-content" :class="{ 'invitation-up': isOpening }">
@@ -29,8 +28,9 @@
                       href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
                       target="_blank">{{ $t('place') }}</a></p>
                   <div class="content-inside-bless">
-                    <input placeholder="write your blessing" @keyup.enter="sendBarrage" @focus="isFocused = true"
-                      @blur="(isFocused = false), (hasEntered = false)" v-model="wish" ref="wishInput" />
+                    <input class="blessing" placeholder="write your blessing" @keyup.enter="sendBarrage"
+                      @focus="isFocused = true" @blur="(isFocused = false), (hasEntered = false)" v-model="wish"
+                      ref="wishInput" />
                     <p v-if="!wish && isFocused && hasEntered">
                       Write your blessing
                     </p>
@@ -48,7 +48,7 @@
           </div>
         </div>
       </ACol>
-      <ACol v-if="!isFocused && isOpening" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
+      <ACol v-if="isOpening" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
         <div class="image"></div>
       </ACol>
     </ARow>
@@ -86,7 +86,7 @@ export default {
           url: "https://www.jihaneandzakaria2022.tk/.netlify/functions/guests",
           method: "POST",
           params: {
-            uid:this.guest.uiid ,
+            uid: this.guest.uiid,
           },
           data: JSON.stringify({
             wish: this.wish
@@ -115,9 +115,10 @@ export default {
   margin: 0 auto;
 
   .card {
-    border: 1px solid #fff;
     height: calc(100% - 21rem);
     padding: 0 20px;
+    z-index: 99;
+    color: white;
 
     .cover-inside-left {
       position: absolute;
@@ -185,14 +186,38 @@ export default {
     position: fixed;
 
     .image {
-      background-image: url("../assets/no.png");
+      background-image: url("../assets/no.jpeg");
       height: 30rem;
       background-position: 8%;
       background-repeat: no-repeat;
+      filter: brightness(36%);
+      height: 100vh;
+      background-size: cover;
     }
   }
 }
+ button {
+                    background-color: #ef5974;
+                    width: 60px;
+                    border-radius: 14px;
+                    border: 1px solid;
 
+
+                    &:disabled {
+                      opacity: 0.8;
+                    }
+
+                    &:first-child {
+                      margin-right: 10px;
+                      flex: 1;
+                    }
+
+                    &:last-child {
+                      width: 60px;
+                      border: 1px solid #f7debb;
+                      background: transparent;
+                    }
+                  }
 .wedding {
   font-family: "Niconne", cursive !important;
   font-size: 1.3rem;
@@ -201,6 +226,39 @@ export default {
   height: 100vh;
   z-index: 1;
   padding-top: 15px;
+
+  .blessing {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #f7debb;
+    color: white;
+    background: transparent;
+    font-size: 1.3rem;
+    mix-blend-mode: multiply !important;
+
+    &::-webkit-input-placeholder {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    &::-moz-placeholder {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    &:-ms-input-placeholder {
+      color: white;
+      font-size: 1.3rem;
+    }
+
+    &:-moz-placeholder {
+      color: white;
+      font-size: 1.3rem;
+    }
+  }
 
   .container {
     display: flex;
@@ -310,67 +368,7 @@ export default {
                 margin-bottom: 5px;
               }
 
-              .content-inside-bless {
-                input {
-                  width: 100%;
-                  height: 35px;
-                  margin-bottom: 10px;
-                  outline: none;
-                  border: none;
-                  border-bottom: 1px solid #f7debb;
-                  color: #a9895d;
-                  background: transparent;
-                  font-size: 16px;
-
-                  &::-webkit-input-placeholder {
-                    color: #e8d1b1;
-                    font-size: 12px;
-                  }
-
-                  &::-moz-placeholder {
-                    color: #e8d1b1;
-                    font-size: 12px;
-                  }
-
-                  &:-ms-input-placeholder {
-                    color: #e8d1b1;
-                    font-size: 12px;
-                  }
-
-                  &:-moz-placeholder {
-                    color: #e8d1b1;
-                    font-size: 12px;
-                  }
-                }
-
-                >div {
-                  display: flex;
-
-                  button {
-                    width: 100%;
-                    height: 35px;
-                    color: #a9895d;
-                    background: #f7debb;
-                    border: none;
-                    outline: none;
-
-                    &:disabled {
-                      opacity: 0.8;
-                    }
-
-                    &:first-child {
-                      margin-right: 10px;
-                      flex: 1;
-                    }
-
-                    &:last-child {
-                      width: 60px;
-                      border: 1px solid #f7debb;
-                      background: transparent;
-                    }
-                  }
-                }
-              }
+       
             }
           }
 
