@@ -165,15 +165,18 @@ export default {
     .cover-inside-seal {
       position: absolute;
       left: 70%;
-      bottom: 100px;
-      width: 80px;
-      height: 80px;
-      margin-left: -40px;
+      bottom: 45px;
+      width: 134px;
+      height: 193px;
+      margin-left: -62px;
       z-index: 7;
       transform-origin: 50% 50%;
       -webkit-transform-origin: 50% 50%;
       transition: all 0.8s cubic-bezier(0.4, 0, 1, 1);
       -webkit-transition: all 0.8s cubic-bezier(0.4, 0, 1, 1);
+      background-image: url("../assets/seal.png");
+      background-repeat: no-repeat;
+      background-size: cover;
 
       &.invitation-flight {
         opacity: 0;
@@ -196,28 +199,30 @@ export default {
     }
   }
 }
- button {
-                    background-color: #ef5974;
-                    width: 60px;
-                    border-radius: 14px;
-                    border: 1px solid;
+
+button {
+  background-color: #ef5974;
+  width: 60px;
+  border-radius: 14px;
+  border: 1px solid;
 
 
-                    &:disabled {
-                      opacity: 0.8;
-                    }
+  &:disabled {
+    opacity: 0.8;
+  }
 
-                    &:first-child {
-                      margin-right: 10px;
-                      flex: 1;
-                    }
+  &:first-child {
+    margin-right: 10px;
+    flex: 1;
+  }
 
-                    &:last-child {
-                      width: 60px;
-                      border: 1px solid #f7debb;
-                      background: transparent;
-                    }
-                  }
+  &:last-child {
+    width: 60px;
+    border: 1px solid #f7debb;
+    background: transparent;
+  }
+}
+
 .wedding {
   font-family: "Niconne", cursive !important;
   font-size: 1.3rem;
@@ -368,7 +373,7 @@ export default {
                 margin-bottom: 5px;
               }
 
-       
+
             }
           }
 
@@ -417,15 +422,18 @@ export default {
           .cover-inside-seal {
             position: absolute;
             left: 70%;
-            bottom: 100px;
-            width: 80px;
-            height: 80px;
-            margin-left: -40px;
+            bottom: 103px;
+            width: 99px;
+            height: 138px;
+            margin-left: -43px;
             z-index: 7;
             transform-origin: 50% 50%;
             -webkit-transform-origin: 50% 50%;
             transition: all 0.8s cubic-bezier(0.4, 0, 1, 1);
             -webkit-transition: all 0.8s cubic-bezier(0.4, 0, 1, 1);
+            background-image: url(/_nuxt/assets/seal.png);
+            background-repeat: no-repeat;
+            background-size: cover;
 
             &.invitation-flight {
               opacity: 0;
