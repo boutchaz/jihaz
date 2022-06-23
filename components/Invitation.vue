@@ -4,13 +4,20 @@
     "message": "Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
     "date": "Date",
     "location": "Location",
-    "place": "Dar Al Marjane"
+    "place": "Dar Al Marjane",
+    "input":"Write your blessing",
+    "send":"send",
+    "close":"close"
   },
   "ar": {
     "message": "هذه الليلة هي مميزة جداً بالنسبة لنا، لهذا دعونا فيه الأشخاص المميزين أيضاً، حضوركم يشرفنا.",
     "date": "التاريخ",
     "location": "المكان",
-    "place": "دار المرجان"
+    "place": "دار المرجان",
+    "input":"متمنياتكم",
+    "send":"إرسال",
+    "close":"إلغاء"
+
   }
 }
 </i18n>
@@ -18,44 +25,87 @@
   <div class="wedding">
     <ARow class="row">
       <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
-        <div :style="{ overflowY: 'scroll' }" class="invitation" :class="{ 'invitation-bounce': canOpen }">
-          <div class="invitation-container" :class="{ 'invitation-down': isOpening }">
+        <div
+          :style="{ overflowY: 'scroll' }"
+          class="invitation"
+          :class="{ 'invitation-bounce': canOpen }"
+        >
+          <div
+            class="invitation-container"
+            :class="{ 'invitation-down': isOpening }"
+          >
             <div class="invitation-cover">
-              <div class="cover-content" :class="{ 'invitation-up': isOpening }">
+              <div
+                class="cover-content"
+                :class="{ 'invitation-up': isOpening }"
+              >
                 <div class="content-inside">
                   <p>{{ guest.fullName }}</p>
-                  <p class="message">{{ $t('message', { guest: guest.fullName }) }} </p>
-                  <p>{{ $t('location') }} ：<a
+                  <p class="message">
+                    {{ $t("message", { guest: guest.fullName }) }}
+                  </p>
+                  <p>
+                    {{ $t("location") }} ：<a
                       href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
-                      target="_blank">{{ $t('place') }}</a></p>
+                      target="_blank"
+                      >{{ $t("place") }}</a
+                    >
+                  </p>
                   <div class="content-inside-bless">
-                    <input class="blessing" placeholder="write your blessing" @keyup.enter="sendBarrage"
-                      @focus="isFocused = true" @blur="(isFocused = false), (hasEntered = false)" v-model="wish"
-                      ref="wishInput" />
+                    <input
+                      class="blessing"
+                      v-bind:placeholder="$t('input')"
+                      @keyup.enter="sendBarrage"
+                      @focus="isFocused = true"
+                      @blur="(isFocused = false), (hasEntered = false)"
+                      v-model="wish"
+                      ref="wishInput"
+                    />
                     <p v-if="!wish && isFocused && hasEntered">
-                      Write your blessing
+                      {{ $t("input") }}
                     </p>
                     <div>
-                      <button @click="sendBarrage">send</button>
-                      <button @click="closeInvitation">close</button>
+                      <button @click="sendBarrage">{{ $t("send") }}</button>
+                      <button @click="closeInvitation">
+                        {{ $t("close") }}
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="cover-inside-left" :class="{ opening: isOpening }"></div>
-              <div class="cover-inside-right" :class="{ opening: isOpening }"></div>
-              <img v-if="!isOpening" class="cover-inside-seal" @click="openInvitation" :class="{ 'invitation-flight': isOpening }" />
+              <div
+                class="cover-inside-left"
+                :class="{ opening: isOpening }"
+              ></div>
+              <div
+                class="cover-inside-right"
+                :class="{ opening: isOpening }"
+              ></div>
+              <img
+                v-if="!isOpening"
+                class="cover-inside-seal"
+                @click="openInvitation"
+                :class="{ 'invitation-flight': isOpening }"
+              />
             </div>
           </div>
         </div>
       </ACol>
-      <ACol v-if="isOpening" :xs="24" :sm="24" :md="2" :lg="2" :xl="2" class="picture">
+      <ACol
+        v-if="isOpening"
+        :xs="24"
+        :sm="24"
+        :md="2"
+        :lg="2"
+        :xl="2"
+        class="picture"
+      >
         <div class="image"></div>
       </ACol>
     </ARow>
   </div>
 </template>
-<script >
+<script>
 import axios from "axios";
 
 export default {
@@ -76,7 +126,7 @@ export default {
     },
     closeInvitation() {
       this.isOpening = false;
-      this.pauseSound()
+      this.pauseSound();
       setTimeout(() => {
         this.$emit("onClose");
       }, 660);
@@ -90,8 +140,8 @@ export default {
             uid: this.guest.uiid,
           },
           data: JSON.stringify({
-            wish: this.wish
-          })
+            wish: this.wish,
+          }),
         });
       }
       this.$nextTick(async () => {
@@ -178,9 +228,48 @@ export default {
       background-image: url("../assets/seal.png");
       background-repeat: no-repeat;
       background-size: cover;
-
+      transform: translate3d(0, 0, 0);
+      animation-name: shake;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
       &.invitation-flight {
         opacity: 0;
+      }
+    }
+    @keyframes shake {
+      0% {
+        transform: translate(1px, 1px) rotate(0deg);
+      }
+      10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+      }
+      20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+      }
+      30% {
+        transform: translate(3px, 2px) rotate(0deg);
+      }
+      40% {
+        transform: translate(1px, -1px) rotate(1deg);
+      }
+      50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+      }
+      60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+      }
+      70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+      }
+      80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+      }
+      90% {
+        transform: translate(1px, 2px) rotate(0deg);
+      }
+      100% {
+        transform: translate(1px, -2px) rotate(-1deg);
       }
     }
   }
@@ -206,7 +295,6 @@ button {
   width: 60px;
   border-radius: 14px;
   border: 1px solid;
-
 
   &:disabled {
     opacity: 0.8;
@@ -293,7 +381,8 @@ button {
       // opacity: 0;
       transition: transform 0.8s cubic-bezier(0.26, 1.84, 0.39, 0.61),
         opacity 0.5s linear;
-      -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 1.84, 0.39, 0.61),
+      -webkit-transition: -webkit-transform 0.8s
+          cubic-bezier(0.26, 1.84, 0.39, 0.61),
         opacity 0.5s linear;
       background-size: 100%;
 
@@ -339,7 +428,8 @@ button {
             height: 100%;
             padding: 10px 20px;
             transition: transform 0.6s cubic-bezier(0.4, 0, 1, 1);
-            -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0, 1, 1);
+            -webkit-transition: -webkit-transform 0.6s
+              cubic-bezier(0.4, 0, 1, 1);
 
             &.invitation-up {
               transform: translateY(-60px);
@@ -373,8 +463,6 @@ button {
                 margin-top: 0;
                 margin-bottom: 5px;
               }
-
-
             }
           }
 
