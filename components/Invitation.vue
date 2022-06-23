@@ -26,7 +26,7 @@
 <template>
   <div class="wedding">
     <ARow class="row">
-      <ACol class="card" :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
+      <ACol class="card" v-bind:style="guest.custominvite ? 'height: calc(100% - 12rem)' : 'height: calc(100% - 21rem)' " :xs="24" :sm="24" :md="2" :lg="2" :xl="2">
         <div
           :style="{ overflowY: 'scroll' }"
           class="invitation"
