@@ -1,7 +1,7 @@
 <i18n>
 {
   "fr": {
-    "message": "chère {guest}, Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
+    "message": "Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
     "date": "Date",
     "location": "Location",
     "place": "Dar Al Marjane"
@@ -23,6 +23,7 @@
             <div class="invitation-cover">
               <div class="cover-content" :class="{ 'invitation-up': isOpening }">
                 <div class="content-inside">
+                  <p>{{ guest.fullName }}</p>
                   <p class="message">{{ $t('message', { guest: guest.fullName }) }} </p>
                   <p>{{ $t('location') }} ：<a
                       href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
@@ -43,7 +44,7 @@
               </div>
               <div class="cover-inside-left" :class="{ opening: isOpening }"></div>
               <div class="cover-inside-right" :class="{ opening: isOpening }"></div>
-              <img class="cover-inside-seal" @click="openInvitation" :class="{ 'invitation-flight': isOpening }" />
+              <img v-if="!isOpening" class="cover-inside-seal" @click="openInvitation" :class="{ 'invitation-flight': isOpening }" />
             </div>
           </div>
         </div>
