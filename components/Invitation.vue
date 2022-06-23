@@ -2,6 +2,7 @@
 {
   "fr": {
     "message": "Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
+    "customessage": "Jihane et Zakaria ont le plaisir de vous faire part de leur mariage qui sera célébré le samedi 23 Juillet 2022, à 20 heures",
     "date": "Date",
     "location": "Location",
     "place": "Dar Al Marjane",
@@ -11,6 +12,7 @@
   },
   "ar": {
     "message": "هذه الليلة هي مميزة جداً بالنسبة لنا، لهذا دعونا فيه الأشخاص المميزين أيضاً، حضوركم يشرفنا.",
+    "customessage": "عائلة محمدبوتشمير و عائلةنعيمة الطلوحي تتشرفان ب دعوة جنابكم الكريم، لحضور حفل زفاف إبنيهما الآنسة المصونة جيهان داري بالشاب الأديب زكرياء بوتشمير أصلحمها الله و ذلك بمشيئة الله،يوم السبت 23 مارس 2202 إبتداأ من الساعة الثامنة مساء",
     "date": "التاريخ",
     "location": "المكان",
     "place": "دار المرجان",
@@ -41,9 +43,17 @@
               >
                 <div class="content-inside">
                   <p>{{ guest.fullName }}</p>
-                  <p class="message">
-                    {{ $t("message", { guest: guest.fullName }) }}
-                  </p>
+                  <div v-if="guest.custominvite">
+                    <p class="message">
+                      {{ $t("customessage", { guest: guest.fullName }) }}
+                    </p>
+                  </div>
+                  <div v-else>
+                    <p class="message">
+                      {{ $t("message", { guest: guest.fullName }) }}
+                    </p>
+                  </div>
+
                   <p>
                     {{ $t("location") }} ：<a
                       href="https://ul.waze.com/ul?place=ChIJOaGqh-sxpg0Rf6p_wnwMUzs&ll=33.44182300%2C-7.54015110&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
